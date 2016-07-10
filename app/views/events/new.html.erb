@@ -1,0 +1,38 @@
+<%= form_tag url: {action: "update"}, html: { multipart: true } do |f| %>
+  <ul style="list-style-type:none">
+    <li><%= label_tag(:name, "Name") %></li>
+    <li><%= text_field_tag(:name, "Event Name", :required => true) %></li>
+    <li><%= label_tag(:slug, "Page Slug") %></li>
+    <li><%= text_field_tag(:slug, "Slug", :required => true) %></li>
+    <li><%= label_tag(:headline, "Headline") %></li>
+    <li><%= text_field_tag(:headline, "Headline") %></li>
+    <li><%= label_tag(:title, "Title") %></li>
+    <li><%= text_field_tag(:title, "Title") %></li>
+    <li><%= label_tag(:excerpt, "Excerpt") %></li>
+    <li><%= text_field_tag(:excerpt, "Excerpt") %></li>
+    <li><%= label_tag(:intro, "Intro") %></li>
+    <li><%= text_field_tag(:intro, "Intro") %></li>
+    <li><%= label_tag(:capacity, "Capacity") %></li>
+    <li><%= number_field_tag(:capacity, "Capacity") %></li>
+    <li><%= label_tag(:tags, "Tags") %></li>
+    <li><%= text_field_tag(:tags) %></li>
+    <li><%= label_tag(:status, "Status") %>
+    <li><%= select_tag(:status, options_for_select([
+      ["unlisted"],
+      ["published"],
+      ["expired"],
+      ["archived"],
+      ["deleted"],
+      ["rule violated"],
+      ["hidden"],
+      ])) %></li>
+    <li><%= label_tag(:start_time) %></li>
+    <li><%= select_datetime Date.today, prefix: :start_time %></li>
+    <li><%= label_tag(:end_time) %></li>
+    <li><%= select_datetime Date.tomorrow, prefix: :end_time %></li>
+    <%= hidden_field_tag(:nation_slug, params["nation_slug"]) %>
+    <%= hidden_field_tag(:site_slug, params["nation_slug"]) %>
+    <%= hidden_field_tag(:token, params["token"]) %>
+  </ul>
+  <%= submit_tag "Create Event" %> | <%= link_to "Cancel", user_nation_api_tokens_path(@user), data: { confirm: "Abandon these changes?" } %>
+<% end %>

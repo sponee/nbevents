@@ -1,0 +1,38 @@
+<%= form_tag url: {action: "update"}, html: { multipart: true } do |f| %>
+  <ul style="list-style-type:none">
+    <li><%= label_tag(:name, "Name") %></li>
+    <li><%= text_field_tag(:name, @event["event"]["name"], :required => true )%></li>
+    <li><%= label_tag(:slug, "Page Slug") %></li>
+    <li><%= text_field_tag(:slug, @event["event"]["slug"], :required => true )%></li>
+    <li><%= label_tag(:headline, "Headline") %></li>
+    <li><%= text_field_tag(:headline, @event["event"]["headline"]) %></li>
+    <li><%= label_tag(:title, "Title") %></li>
+    <li><%= text_field_tag(:title, @event["event"]["title"]) %></li>
+    <li><%= label_tag(:excerpt, "Excerpt") %></li>
+    <li><%= text_field_tag(:excerpt, @event["event"]["excerpt"]) %></li>
+    <li><%= label_tag(:intro, "Intro") %></li>
+    <li><%= text_field_tag(:intro, @event["event"]["intro"]) %></li>
+    <li><%= label_tag(:capacity, "Capacity") %></li>
+    <li><%= number_field_tag(:capacity, @event["event"]["capacity"]) %></li>
+    <li><%= label_tag(:tags, "Tags") %></li>
+    <li><%= text_field_tag(:tags, @event["event"]["tags"]) %></li>
+    <li><%= label_tag(:status, "Status") %>
+    <li><%= select_tag(:status, options_for_select([
+      ["unlisted"],
+      ["published"],
+      ["expired"],
+      ["archived"],
+      ["deleted"],
+      ["rule violated"],
+      ["hidden"],
+      ])) %></li>
+    <li><%= label_tag(:start_time) %></li>
+    <li><%= select_datetime Date.parse(@event["event"]["start_time"]), prefix: :start_time, :required => true  %></li>
+    <li><%= label_tag(:end_time) %></li>
+    <li><%= select_datetime Date.parse(@event["event"]["end_time"]), prefix: :end_time, :required => true  %></li>
+    <%= hidden_field_tag(:site_slug, params["site_slug"]) %>
+    <%= hidden_field_tag(:nation_slug, params["nation_slug"]) %>
+    <%= hidden_field_tag(:token, params["token"]) %>
+  </ul>
+  <%= submit_tag "Update Event" %> | <%= link_to "Cancel", user_nation_api_tokens_path(@user), data: { confirm: "Abandon these changes?" } %>
+<% end %>

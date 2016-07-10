@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nation_slug: MyString
+  api_token: MyString
+  note: MyText
+
+two:
+  nation_slug: MyString
+  api_token: MyString
+  note: MyText

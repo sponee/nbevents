@@ -1,0 +1,10 @@
+<%= render 'shared/errors', object: @token %>
+<%= form_for @token, url: {action: "create"} do |f| %>
+  <ol style="list-style-type:none">
+    <li><%= f.label :nation_slug %><br/><%= f.text_area :nation_slug, :required => true %></li>
+    <li><%= f.label :site_slug %><br/><%= f.text_area :site_slug, :required => true %></li>
+    <li><%= f.label :api_token %><br/><%= f.text_area :api_token, :required => true %></li>
+    <li><%= f.label :note %><br/><%= f.text_area :note %></li>
+    <%= f.submit "Submit" %> <%= link_to("Cancel", user_nation_api_tokens_path) %>
+  </ol>
+<% end %>

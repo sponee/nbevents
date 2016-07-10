@@ -1,0 +1,15 @@
+<% @events["results"].each do |event| %>
+  <ul style="list-style-type:none">
+    <li><b><%= event["name"] %></b></li>
+    <li><%= event["intro"] %></li>
+    <li><%= event["venue"]["name"] %></li>
+    <li><%= event["venue"]["address"] %></li>
+    <li>Start Time: <%= event["start_time"] %></li>
+    <li>End Time: <%= event["end_time"] %></li>
+    <li><%= event["contact"]["name"] %></li>
+    <li><%= event["contact"]["phone"] %></li>
+    <li><%= event["contact"]["email"] %></li>
+  </ul>
+  <%= link_to('Edit Event', edit_user_event_path(id: event["id"], token: params["token"], site_slug: params["site_slug"], nation_slug: params["nation_slug"])) %>
+  <hr />
+<% end %>
