@@ -8,10 +8,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
+    user = where(provider: auth.provider, uid: auth.uid).first
+    unless user
+      user = where(email: auth.info.email).first_or_initialize
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.save!
     end
+    user
   end
 
   def self.new_with_session(params, session)
