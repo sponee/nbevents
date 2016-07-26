@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users do
     resource :nation_api_tokens do 
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-  post '/' => 'welcome#create_rsvp'
+#  post '/' => 'welcome#create_rsvp'
   post '/users/:user_id/events/:id/edit' => 'events#update', as: 'update_event'
   post '/users/:user_id/events/new' => 'events#create', as: 'create_event'
   get '/:token_id' => 'nation_api_tokens#show', as: 'show_token'
