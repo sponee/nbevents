@@ -4,4 +4,5 @@ class NationApiToken < ActiveRecord::Base
   
   validates :nation_slug, :site_slug, presence: true
   validates :api_token, presence: true, uniqueness: true
+  validates :user, presence: true
 end
