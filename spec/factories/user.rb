@@ -3,6 +3,5 @@ FactoryGirl.define do
     email "kyle.sponheim@gmail.com"
     password "password"
     password_confirmation "password"
-    admin false
   end
 end
