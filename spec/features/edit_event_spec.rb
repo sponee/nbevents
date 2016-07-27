@@ -7,9 +7,9 @@ describe EventsController do
     create_nation_api_token
   end
 
-  describe "create" do
+  describe "update" do
 
-    it "creates and saves the event and redirects to the NationApiTokens Index URL" do 
+    it "updates and saves the event and redirects to the NationApiTokens Index URL" do 
 
       slug = 'nbevents'
       token = ENV["TESTING_TOKEN"]
