@@ -45,6 +45,7 @@ group :development, :test do
   gem 'byebug'
   gem 'foreman'
   gem 'rspec-rails', '3.4.2'
+  gem 'factory_girl_rails'
 end
 
 group :development do
