@@ -1,6 +1,14 @@
 require 'rails_helper'
 
-describe "Viewing the top nav" do
+    def login_user
+      before(:each) do
+        @request.env["devise.mapping"] = Devise.mappings[:user]
+        user = FactoryGirl.create(:user)
+        sign_in user
+      end
+    end
+
+describe WelcomeController do
 
   context "When not logged in" do
 
@@ -14,9 +22,14 @@ describe "Viewing the top nav" do
   end
 
   context "When logged in" do
-    let(:current_user) { User.new(user_attributes) }
+    login_user
 
-    it "displays a log out url" 
-      
+    it "displays a log out url" do
+      visit root_url
+
+      click_link 'Logout'
+
+      expect(current_path).to eq(destroy_user_session_path)
+    end
   end
 end
