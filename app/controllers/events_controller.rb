@@ -2,7 +2,23 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, :set_client
 
   def show
-    @client.call(:events, :show, site_slug: params["site_slug"], id: params["id"])
+   @event = @client.call(:events, :show, site_slug: params["site_slug"], id: params["id"])
+  end
+
+  def rsvp_form
+   @event = @client.call(:events, :show, site_slug: params["site_slug"], id: params["id"])
+  end
+
+  def submit_rsvp
+    @response = @client.call(:people, :push, person: { email: params["email"] })
+    if @response["status_code"] == 200
+      @response = @client.call(:events, :rsvp_create, site_slug: params["site_slug"], id: params["id"], rsvp: {person_id: @response["person"]["id"]})
+      if @response["status_code"] == 200
+        redirect_to :back, notice: "RSVP submitted!"
+      end
+    else
+      render :submit_rsvp, notice: "Something went wrong."
+    end
   end
 
   def index
