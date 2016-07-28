@@ -6,7 +6,7 @@ describe NationApiTokensController do
   end
   describe "create" do
 
-    it "creates and saves the token and redirects to the root URL" do 
+    it "creates and saves the token and redirects to the new token" do 
 
       visit new_user_nation_api_tokens_url(@user)
 
