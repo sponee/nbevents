@@ -1,2 +1,28 @@
-<%= @signup %>
-Hello!
+<h2>Signup</h2>
+<h3><%= @signup["person"]["first_name"] %> <%= @signup["person"]["last_name"] %></h3>
+<p>Do Not Call: <%= @signup["person"]["do_not_call"] %></p>
+<p>Do Not Contact: <%= @signup["person"]["do_not_contact"] %></p>
+<p>Email: <%= @signup["person"]["email"] %></p>
+<p>Email Opt-In: <%= @signup["person"]["email_opt_in"] %></p>
+<p>Employer: <%= @signup["person"]["employer"] %></p>
+<p>Occupation: <%= @signup["person"]["occupation"] %></p>
+<p>Volunteer: <%= @signup["person"]["is_volunteer"] %></p>
+<p>Phone Number: <%= @signup["person"]["phone"] %></p>
+<p>Work Phone Number: <%= @signup["person"]["work_phone_number"] %></p>
+<p>Mobile Number: <%= @signup["person"]["mobile"] %></p>
+<p>Mobile Opt-In: <%= @signup["person"]["mobile_opt_in"] %></p>
+<p>Background: <%= @signup["person"]["note"] %></p>
+<p>Gender: <%= @signup["person"]["sex"] %></p>
+<p>Support Level: <%= @signup["person"]["support_level"] %></p>
+<p>Twitter Handle: <%= @signup["person"]["twitter_name"] %></p>
+<p>Availability: <%= @signup["person"]["availability"] %></p>
+<p>Twitter Bio: <%= @signup["person"]["bio"] %></p>
+<p>Email 1: <%= @signup["person"]["email1"] %></p>
+<p>Email 2: Email 1: <%= @signup["person"]["email2"] %></p>
+<p>Email 3: <%= @signup["person"]["email3"] %></p>
+<p>Email 4: <%= @signup["person"]["email4"] %></p>
+<p>Ethnicity: <%= @signup["person"]["ethnicity"] %></p>
+<p>Facebook Profile: <%= @signup["person"]["facebook_profile_url"] %></p>
+<p>Federal Do Not Call: <%= @signup["person"]["federal_donotcall"] %></p>
+<p>Website: <%= @signup["person"]["website"] %></p>
+<p><%= link_to("Edit Signup", edit_user_signup_path(id: @signup["person"]["id"], nation_slug: params["nation_slug"], token: params["token"])) %>

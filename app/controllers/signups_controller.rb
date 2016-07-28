@@ -19,7 +19,25 @@ class SignupsController < ApplicationController
   end
 
   def show
-    @signup = @client.call(:people, :show, id: params["signup_id"])
+    @signup = @client.call(:people, :show, id: params["id"])
+  end
+
+  def edit
+    @signup = @client.call(:people, :show, id: params["id"])
+  end
+
+  def update
+    @update = @client.call(:people, :update, id: params["id"], person: { 
+      first_name: params["first_name"], 
+      last_name: params["last_name"],
+      email: params["email"],
+      employer: params["employer"]
+      })
+    if @update["status_code"] == 200
+      redirect_to :back, notice: "Signup successfully updated!"
+    else
+      render :edit
+    end
   end
 
   private

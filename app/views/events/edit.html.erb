@@ -27,9 +27,9 @@
       ["hidden"],
       ])) %></li>
     <li><%= label_tag(:start_time) %></li>
-    <li><%= select_datetime Date.parse(@event["event"]["start_time"]), prefix: :start_time, :required => true  %></li>
+    <li><%= select_datetime DateTime.parse(@event["event"]["start_time"]), prefix: :start_time, :required => true  %></li>
     <li><%= label_tag(:end_time) %></li>
-    <li><%= select_datetime Date.parse(@event["event"]["end_time"]), prefix: :end_time, :required => true  %></li>
+    <li><%= select_datetime DateTime.parse(@event["event"]["end_time"]), prefix: :end_time, :required => true  %></li>
     <%= hidden_field_tag(:site_slug, params["site_slug"]) %>
     <%= hidden_field_tag(:nation_slug, params["nation_slug"]) %>
     <%= hidden_field_tag(:token, params["token"]) %>

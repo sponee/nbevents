@@ -1,0 +1,17 @@
+<h2>Edit Signup</h2>
+<%= form_tag url: {action: "update"}, html: { multipart: true } do |f| %>
+  <ul style="list-style-type:none">
+    <li><%= label_tag(:first_name, "First Name") %></li>
+    <li><%= text_field_tag(:first_name, @signup["person"]["first_name"])%></li>
+    <li><%= label_tag(:last_name, "Last Name") %></li>
+    <li><%= text_field_tag(:last_name, @signup["person"]["last_name"]) %></li>
+    <li><%= label_tag(:email, "Email") %></li> 
+    <li><%= text_field_tag(:email, @signup["person"]["email"]) %></li>
+    <li><%= label_tag(:employer, "Employer") %></li>
+    <li><%= text_field_tag(:employer, @signup["person"]["employer"]) %></li>
+    <%= hidden_field_tag(:id, @signup["person"]["id"]) %>
+    <%= hidden_field_tag(:nation_slug, params["nation_slug"]) %>
+    <%= hidden_field_tag(:token, params["token"]) %>
+    <%= submit_tag "Update Signup" %> | <%= link_to "Cancel", user_nation_api_tokens_path(@user), data: { confirm: "Abandon these changes?" } %>
+  </ul>
+<% end %>
