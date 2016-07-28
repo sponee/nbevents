@@ -1,0 +1,9 @@
+<ul style="list-style-type:none">
+<% @signups["results"].each do |signup| %>
+  <li>Name: <%= signup["first_name"] %> <%= signup["last_name"] %></li>
+  <li>Note: <%= signup["note"] %></li>
+  <li><%= link_to("View Signup", user_signup_path(id: params["user_id"], token: params["token"], nation_slug: params["nation_slug"], signup_id: signup["id"])) %>
+  <hr />
+<% end %>
+</ul>
+<%= link_to("Next", user_signups_path(token: params["token"], nation_slug: params["nation_slug"], page: params["page"].to_i+1)) %>
