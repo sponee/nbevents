@@ -10,6 +10,6 @@
     <li><%= event["contact"]["phone"] %></li>
     <li><%= event["contact"]["email"] %></li>
   </ul>
-  <%= link_to('Edit Event', edit_user_event_path(id: event["id"], token: params["token"], site_slug: params["site_slug"], nation_slug: params["nation_slug"])) %>
+  <%= link_to('View Event', user_event_path(id: event["id"], token: params["token"], site_slug: params["site_slug"], nation_slug: params["nation_slug"])) %> | <%= link_to('Edit Event', edit_user_event_path(id: event["id"], token: params["token"], site_slug: params["site_slug"], nation_slug: params["nation_slug"])) %>
   <hr />
 <% end %>
