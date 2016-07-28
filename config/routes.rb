@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   post '/users/:user_id/events/new' => 'events#create', as: 'create_event'
   get '/:token_id' => 'nation_api_tokens#show', as: 'show_token'
 
+  #
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

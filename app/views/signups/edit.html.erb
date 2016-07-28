@@ -1,7 +1,7 @@
 <h2>Edit Signup</h2>
 <%= form_tag url: {action: "update"}, html: { multipart: true } do |f| %>
   <ul style="list-style-type:none">
-    <li><%= label_tag(:first_name, "First Name") %></li>
+    <li><%= label_tag(:first_name, "First name") %></li>
     <li><%= text_field_tag(:first_name, @signup["person"]["first_name"])%></li>
     <li><%= label_tag(:last_name, "Last Name") %></li>
     <li><%= text_field_tag(:last_name, @signup["person"]["last_name"]) %></li>

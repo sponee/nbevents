@@ -20,6 +20,7 @@ class SignupsController < ApplicationController
 
   def show
     @signup = @client.call(:people, :show, id: params["id"])
+    #
   end
 
   def edit
