@@ -8,7 +8,7 @@ class NationApiTokensController < ApplicationController
   def create
     @token = @user.nation_api_tokens.new(nation_api_token_create_params)
     if @token.save
-      redirect_to user_nation_api_tokens_path, notice: "API Token successfully created!"
+      redirect_to show_token_path(@token), notice: "API Token successfully created!"
     else
       render :new
     end
