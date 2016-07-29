@@ -1,3 +1,4 @@
+<%= render 'shared/errors', object: @token %>
 <%= form_tag url: {action: "update"}, html: { multipart: true } do |f| %>
   <ul style="list-style-type:none">
     <li><%= label_tag(:name, "Name") %></li>

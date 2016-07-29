@@ -41,6 +41,13 @@ class SignupsController < ApplicationController
     end
   end
 
+  def destroy
+    @response = @client.call(:people, :destroy, id: params["id"])
+    if @response == true
+      redirect_to user_signups_path, alert: "API Token successfully deleted!"
+    end
+  end
+
   private
 
   def set_user

@@ -1,3 +1,7 @@
-Hey.
-
-<%= @token.api_token %>
+<%= render 'shared/errors', object: @token %>
+<h2>API Token</h2>
+<p>Nation Slug: <%= @token.nation_slug %></p>
+<p>Site Slug: <%= @token.site_slug %></p>
+<p>Token: <%= @token.api_token %></p>
+<p>Note: <%= @token.note %></p>
+<%= link_to("Edit Token", edit_user_nation_api_tokens_path(token_id: @token, user_id: @current_user)) %> | <%= link_to("View Events", user_events_path(nation_slug: @token.nation_slug, token: @token.api_token, site_slug: @token.site_slug, user_id: @current_user)) %> | <%= link_to("New Event", new_user_event_path(nation_slug: @token.nation_slug, token: @token.api_token, site_slug: @token.site_slug, user_id: @current_user)) %> | <%= link_to("View Signups", user_signups_path(token: @token.api_token, nation_slug: @token.nation_slug, page: 1, user_id: @current_user)) %>

@@ -1,3 +1,4 @@
+<%= render 'shared/errors', object: @event %>
 <h3>RSVP For <%= @event["event"]["name"] %></h3>
 <%= form_tag html: { multipart: true } do |f| %>
   <ul style="list-style-type:none">
