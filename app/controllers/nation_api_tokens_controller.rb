@@ -28,7 +28,7 @@ class NationApiTokensController < ApplicationController
   def update
     @token = NationApiToken.find(params[:token_id])
     if @token.update(nation_api_token_update_params)
-      redirect_to user_nation_api_tokens_path, notice: "token successfully updated!"
+      redirect_to show_token_path(@token), notice: "token successfully updated!"
     else
       render :edit
     end
