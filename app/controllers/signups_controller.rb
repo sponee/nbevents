@@ -22,7 +22,6 @@ class SignupsController < ApplicationController
   end
 
   def search_form
-    fail
   end
 
   def search_results
