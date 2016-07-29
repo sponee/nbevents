@@ -6,6 +6,6 @@
     <li><%= f.label :site_slug %><br/><%= f.text_area :site_slug %></li>
     <li><%= f.label :api_token %><br/><%= @token.api_token %></li>
     <li><%= f.label :note %><br/><%= f.text_area :note %></li>
-    <%= f.submit "Update" %> <%= link_to("Cancel", user_nation_api_tokens_path) %>
+    <%= f.submit "Update" %> <%= button_to("Cancel", user_nation_api_tokens_path) %>
   </ol>
 <% end %>
