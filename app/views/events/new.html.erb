@@ -32,7 +32,7 @@
     <li><%= label_tag(:end_time) %></li>
     <li><%= select_datetime Date.tomorrow, prefix: :end_time %></li>
     <%= hidden_field_tag(:nation_slug, params["nation_slug"]) %>
-    <%= hidden_field_tag(:site_slug, params["nation_slug"]) %>
+    <%= hidden_field_tag(:site_slug, params["site_slug"]) %>
     <%= hidden_field_tag(:token, params["token"]) %>
   </ul>
   <%= submit_tag "Create Event" %> | <%= link_to "Cancel", user_nation_api_tokens_path(@user), data: { confirm: "Abandon these changes?" } %>
