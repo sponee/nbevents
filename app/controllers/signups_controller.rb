@@ -1,5 +1,5 @@
 class SignupsController < ApplicationController
-  before_action :authenticate_user!, :set_client
+  before_action :authenticate_user!, :set_client, :require_permission
   
   def index
     if params["page"].to_i == 2 
@@ -57,5 +57,11 @@ class SignupsController < ApplicationController
   def set_client
     set_user
     @client = NationBuilder::Client.new(params["nation_slug"], params["token"])
+  end
+
+  def require_permission
+    if current_user != User.find(params["user_id"])
+      redirect_to root_path, notice: "You are not authorized to view this content."
+    end
   end
 end

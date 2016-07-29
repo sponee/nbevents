@@ -1,5 +1,5 @@
 class NationApiTokensController < ApplicationController
-  before_action :authenticate_user!, :set_user, :set_token
+  before_action :authenticate_user!, :set_user, :set_token, :require_permission
 
   def new
     @token = NationApiToken.new
@@ -8,7 +8,7 @@ class NationApiTokensController < ApplicationController
   def create
     @token = @user.nation_api_tokens.new(nation_api_token_create_params)
     if @token.save
-      redirect_to show_token_path(@token), notice: "API Token successfully created!"
+      redirect_to show_token_path(id: @token, user_id: @current_user), notice: "API Token successfully created!"
     else
       render :new
     end
@@ -18,7 +18,7 @@ class NationApiTokensController < ApplicationController
   end
 
   def show
-    @token = NationApiToken.find(params[:token_id])
+    @token = NationApiToken.find(params[:id])
   end
 
   def edit
@@ -56,5 +56,11 @@ class NationApiTokensController < ApplicationController
 
   def nation_api_token_create_params
     params.require(:nation_api_token).permit(:nation_slug, :api_token, :site_slug, :note)
+  end
+
+  def require_permission
+    if current_user != User.find(params["user_id"])
+      redirect_to root_path, notice: "You are not authorized to view this content."
+    end
   end
 end

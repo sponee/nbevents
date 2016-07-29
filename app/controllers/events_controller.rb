@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, :set_client
+  before_action :authenticate_user!, :set_client, :require_permission
 
   def show
    @event = @client.call(:events, :show, site_slug: params["site_slug"], id: params["id"])
@@ -81,6 +81,12 @@ class EventsController < ApplicationController
   def set_client
     set_user
     @client = NationBuilder::Client.new(params["nation_slug"], params["token"])
+  end
+
+  def require_permission
+    if current_user != User.find(params["user_id"])
+      redirect_to root_path, notice: "You are not authorized to view this content."
+    end
   end
   
 end
