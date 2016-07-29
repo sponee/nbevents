@@ -26,5 +26,4 @@
 <p>Federal Do Not Call: <%= @signup["person"]["federal_donotcall"] %></p>
 <p>Website: <%= @signup["person"]["website"] %></p>
 <p><%= link_to("Edit Signup", edit_user_signup_path(id: @signup["person"]["id"], nation_slug: params["nation_slug"], token: params["token"])) %> | 
-
   <%= link_to 'Delete Signup', user_signup_path(id: @signup["person"]["id"], nation_slug: params["nation_slug"], token: params["token"]), method: :delete, data: { confirm: 'Are you certain you want to delete this Signup?' } %></p>

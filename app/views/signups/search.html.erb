@@ -1,0 +1,10 @@
+<%= form_tag html: { multipart: true } do |f| %>
+  <ul style="list-style-type:none">
+    <li><%= label_tag(:email, "Email") %></li>
+    <li><%= text_field_tag(:email, "", required: true) %></li>
+    <%= hidden_field_tag(:site_slug, params["site_slug"]) %>
+    <%= hidden_field_tag(:nation_slug, params["nation_slug"]) %>
+    <%= hidden_field_tag(:token, params["token"]) %>
+    <%= submit_tag "Search" %>
+  </ul>
+<% end %>

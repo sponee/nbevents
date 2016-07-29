@@ -72,6 +72,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    @response = @client.call(:events, :destroy, site_slug: params["site_slug"], id: params["id"])
+    if @response == true
+      redirect_to user_nation_api_tokens_path(@user), alert: "Event successfully deleted!"
+    end
+  end
+
   private
 
   def set_user
