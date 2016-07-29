@@ -13,6 +13,13 @@ def login
 end
 
 def create_nation_api_token
+  NationApiToken.destroy_all
   login
   @token = @user.nation_api_tokens.create(nation_api_token_attributes)
+end
+
+def create_client
+  slug = ENV["TESTING_SLUG"]
+  token = ENV["TESTING_TOKEN"]
+  @client = NationBuilder::Client.new(slug, token)
 end

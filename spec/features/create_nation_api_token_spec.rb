@@ -18,13 +18,13 @@ describe NationApiTokensController do
 
       expect(page).to have_text("API Token successfully created!")
     end
-  end
 
-  it "does not save the token if it's invalid" do
-    visit new_user_nation_api_tokens_url(@user)
-    
-    click_button "Submit"
-    
-    expect(page).to have_text("The nationapitoken could not be saved. Please correct the following")
+    it "does not save the token if it's invalid" do
+      visit new_user_nation_api_tokens_url(@user)
+      
+      click_button "Submit"
+      
+      expect(page).to have_text("The nationapitoken could not be saved. Please correct the following")
+    end
   end
 end

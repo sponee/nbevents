@@ -38,7 +38,7 @@ class SignupsController < ApplicationController
   end
 
   def create
-    @response = @client.call(:people, :create, person: { 
+    @response = @client.call(:people, :push, person: { 
       first_name: params["first_name"],
       last_name: params["last_name"],
       email: params["email"]
