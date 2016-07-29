@@ -60,7 +60,7 @@ class NationApiTokensController < ApplicationController
 
   def require_permission
     if current_user != User.find(params["user_id"])
-      redirect_to root_path, notice: "You are not authorized to view this content."
+      redirect_to root_path, alert: "You are not authorized to view this content."
     end
   end
 end

@@ -1,5 +1,5 @@
 <h2>New Event</h2>
-<%= form_tag url: {action: "update"}, html: { multipart: true } do |f| %>
+<%= form_tag url: {action: "create"}, html: { multipart: true } do |f| %>
   <ul style="list-style-type:none">
     <li><%= label_tag(:name, "Name") %></li>
     <li><%= text_field_tag(:name, "Event Name", :required => true) %></li>
