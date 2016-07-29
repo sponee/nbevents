@@ -52,7 +52,6 @@ class EventsController < ApplicationController
   def create
     @update = @client.call(:events, :create, 
       site_slug: params["nation_slug"],
-      id: params["id"],
       event: {
         status: params["status"],
         name: params["name"],
