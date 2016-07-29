@@ -10,8 +10,6 @@ gem 'omniauth-facebook'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -46,6 +44,7 @@ group :development, :test do
   gem 'foreman'
   gem 'rspec-rails', '3.4.2'
   gem 'factory_girl_rails'
+  gem 'sqlite3'
 end
 
 group :development do
