@@ -1,0 +1,24 @@
+<h2>New Signup</h2>
+<%= form_tag url: {action: "create"}, html: { multipart: true } do |f| %>
+  <ul style="list-style-type:none">
+    <li><%= label_tag(:first_name, "First Name") %></li>
+    <li><%= text_field_tag(:first_name) %></li>
+    <li><%= label_tag(:last_name, "Last Name") %></li>
+    <li><%= text_field_tag(:last_name) %></li>
+    <li><%= label_tag(:email, "Email") %></li>
+    <li><%= text_field_tag(:email) %></li>
+    <li><%= label_tag(:employer, "Employer") %></li>
+    <li><%= text_field_tag(:employer) %></li>
+    <li><%= label_tag(:gender, "Gender") %></li>
+    <li><%= select_tag(:gender, options_for_select([
+      [""],
+      ["M"],
+      ["F"],
+      ["O"]
+      ])) %></li>
+    <%= hidden_field_tag(:nation_slug, params["nation_slug"]) %>
+    <%= hidden_field_tag(:site_slug, params["nation_slug"]) %>
+    <%= hidden_field_tag(:token, params["token"]) %>
+  </ul>
+  <%= submit_tag "Create Signup" %> | <%= link_to "Cancel", user_nation_api_tokens_path(@user), data: { confirm: "Abandon these changes?" } %>
+<% end %>

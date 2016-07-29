@@ -1,1 +1,14 @@
-Hello
+<h2>Viewing Event</h2>
+<ul style="list-style-type:none">
+  <li>Name: <%= @event["event"]["name"] %></li>
+  <li>Slug: <%=  @event["event"]["slug"] %></li>
+  <li>Headline: <%= @event["event"]["headline"] %></li>
+  <li>Title: <%= @event["event"]["title"] %></li>
+  <li>Excerpt: <%= @event["event"]["excerpt"] %></li>
+  <li>Intro: <%= @event["event"]["intro"] %></li>
+  <li>Capacity: <%= @event["event"]["capacity"] %></li>
+  <li>Status: <%= @event["event"]["status"] %>
+  <li>Start Time:<%= DateTime.parse(@event["event"]["start_time"]) %></li>
+  <li>End Time: <%= DateTime.parse(@event["event"]["end_time"]) %></li>
+</ul>
+<%= link_to('Edit Event', edit_user_event_path(id: params["id"], token: params["token"], site_slug: params["site_slug"], nation_slug: params["nation_slug"])) %> | <%= link_to('Submit RSVPs', create_rsvp_path(id: params["id"], token: params["token"], site_slug: params["site_slug"], nation_slug: params["nation_slug"])) %> | <%= link_to 'Delete Event', user_event_path(id: params["id"], nation_slug: params["nation_slug"], token: params["token"], site_slug: params["site_slug"]), method: :delete, data: { confirm: 'Are you certain you want to delete this Event?' } %></p>

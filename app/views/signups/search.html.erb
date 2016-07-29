@@ -1,4 +1,3 @@
-<h3>RSVP For <%= @event["event"]["name"] %></h3>
 <%= form_tag html: { multipart: true } do |f| %>
   <ul style="list-style-type:none">
     <li><%= label_tag(:email, "Email") %></li>
@@ -6,6 +5,6 @@
     <%= hidden_field_tag(:site_slug, params["site_slug"]) %>
     <%= hidden_field_tag(:nation_slug, params["nation_slug"]) %>
     <%= hidden_field_tag(:token, params["token"]) %>
-    <%= submit_tag "Submit RSVP" %>
+    <%= submit_tag "Search" %>
   </ul>
 <% end %>

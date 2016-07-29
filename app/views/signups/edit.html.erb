@@ -1,4 +1,4 @@
-<h2>Edit Signup</h2>
+<h2>Editing Signup</h2>
 <%= form_tag url: {action: "update"}, html: { multipart: true } do |f| %>
   <ul style="list-style-type:none">
     <li><%= label_tag(:first_name, "First name") %></li>
@@ -9,6 +9,56 @@
     <li><%= text_field_tag(:email, @signup["person"]["email"]) %></li>
     <li><%= label_tag(:employer, "Employer") %></li>
     <li><%= text_field_tag(:employer, @signup["person"]["employer"]) %></li>
+    <li><%= label_tag(:occupation, "Occupation") %></li>
+    <li><%= text_field_tag(:occupation, @signup["person"]["occupation"]) %></li>
+    <li><%= label_tag(:is_volunteer, "Volunteer?") %></li>
+        <li><%= select_tag(:is_volunteer, options_for_select([
+        [@signup["person"]["is_volunteer"]],
+        ["true"],
+        ["false"]
+        ])) %></li>
+    <li><%= label_tag(:email_opt_in, "Email Opt-In") %></li>
+    <li><%= select_tag(:email_opt_in, options_for_select([
+        [@signup["person"]["email_opt_in"]],
+        ["true"],
+        ["false"]
+        ])) %></li>
+    <li><%= label_tag(:phone, "Phone") %></li>
+    <li><%= text_field_tag(:phone, @signup["person"]["phone"]) %></li>
+    <li><%= label_tag(:mobile_number, "Mobile Number") %></li>
+    <li><%= text_field_tag(:mobile, @signup["person"]["mobile"]) %></li>
+    <li><%= label_tag(:work_phone_number, "Work Phone") %></li>
+    <li><%= text_field_tag(:work_phone_number, @signup["person"]["work_phone_number"]) %></li>
+    <li><%= label_tag(:note, "note") %></li>
+    <li><%= text_field_tag(:note, @signup["person"]["note"]) %></li>
+    <li><%= label_tag(:sex, "Sex") %></li>
+    <li><%= select_tag(:sex, options_for_select([
+        [@signup["person"]["sex"]],
+        [""],
+        ["M"],
+        ["F"],
+        ["O"]
+        ])) %></li>
+    <li><%= label_tag(:support_level, "Support Level") %></li>
+    <li><%= select_tag(:support_level, options_for_select([
+        [@signup["person"]["support_level"]],
+        [""],
+        [1],
+        [2],
+        [3],
+        [4],
+        [5]
+        ])) %></li>
+    <li><%= label_tag(:twitter_name, "Twitter Handle") %></li>
+    <li><%= text_field_tag(:twitter_name, @signup["person"]["twitter_name"]) %></li>
+    <li><%= label_tag(:availability, "Availability") %></li>
+    <li><%= text_field_tag(:availability, @signup["person"]["availability"]) %></li>
+    <li><%= label_tag(:ethnicity, "Ethnicity") %></li>
+    <li><%= text_field_tag(:ethnicity, @signup["person"]["ethnicity"]) %></li>
+    <li><%= label_tag(:facebook_profile_url, "Facebook Profile URL") %></li>
+    <li><%= text_field_tag(:facebook_profile_url, @signup["person"]["facebook_profile_url"]) %></li>
+    <li><%= label_tag(:website, "Website") %></li>
+    <li><%= text_field_tag(:website, @signup["person"]["website"]) %></li>
     <%= hidden_field_tag(:id, @signup["person"]["id"]) %>
     <%= hidden_field_tag(:nation_slug, params["nation_slug"]) %>
     <%= hidden_field_tag(:token, params["token"]) %>

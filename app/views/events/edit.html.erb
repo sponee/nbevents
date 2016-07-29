@@ -1,4 +1,4 @@
-<%= render 'shared/errors', object: @token %>
+<h2>Editing Event</h2>
 <%= form_tag url: {action: "update"}, html: { multipart: true } do |f| %>
   <ul style="list-style-type:none">
     <li><%= label_tag(:name, "Name") %></li>
@@ -35,5 +35,5 @@
     <%= hidden_field_tag(:nation_slug, params["nation_slug"]) %>
     <%= hidden_field_tag(:token, params["token"]) %>
   </ul>
-  <%= submit_tag "Update Event" %> | <%= link_to "Cancel", user_nation_api_tokens_path(@user), data: { confirm: "Abandon these changes?" } %>
+  <%= submit_tag "Update Event" %> | <%= link_to "Cancel", user_event_path(id: params["id"], token: params["token"], site_slug: params["site_slug"], nation_slug: params["nation_slug"]), data: { confirm: "Abandon these changes?" } %>
 <% end %>

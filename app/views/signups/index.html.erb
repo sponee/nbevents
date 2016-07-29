@@ -1,10 +1,10 @@
 <h3>Viewing Signups For <%= params["nation_slug"] %></h3>
-<ul style="list-style-type:none">
 <% @signups["results"].each do |signup| %>
+<ul style="list-style-type:none">
   <li>Name: <%= signup["first_name"] %> <%= signup["last_name"] %></li>
   <li>Note: <%= signup["note"] %></li>
-  <li><%= link_to("View signup", user_signup_path(token: params["token"], nation_slug: params["nation_slug"], id: signup["id"])) %> | <%= link_to("Edit Signup", edit_user_signup_path(id: signup["id"], nation_slug: params["nation_slug"], token: params["token"])) %></li>
-  <hr />
-<% end %>
 </ul>
+<p><%= link_to("View Signup", user_signup_path(token: params["token"], nation_slug: params["nation_slug"], id: signup["id"])) %> | <%= link_to("Edit Signup", edit_user_signup_path(id: signup["id"], nation_slug: params["nation_slug"], token: params["token"])) %></p>
+<hr />
+<% end %>
 <%= link_to("Next", user_signups_path(token: params["token"], nation_slug: params["nation_slug"], page: params["page"].to_i+1)) %>
