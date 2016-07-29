@@ -10,9 +10,12 @@ describe EventsController do
 
     it "creates and saves the event and redirects to the NationApiTokens Index URL" do 
 
-      visit new_user_event_url(@user)
+      event = event_attributes
+      create_client
+      response = @client.call(:events, :create, event)
 
-      expect(page).to have_text("Name")
+      expect(response["status_code"]).to eq(200)
+      expect(current_path).to eq(root_path)
     end
   end
 end

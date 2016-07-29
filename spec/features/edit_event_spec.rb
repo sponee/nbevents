@@ -9,7 +9,7 @@ describe EventsController do
 
   describe "update" do
 
-    it "updates and saves the event and redirects to the NationApiTokens Index URL" do 
+    it "updates and saves the event" do 
 
       slug = 'nbevents'
       token = ENV["TESTING_TOKEN"]
