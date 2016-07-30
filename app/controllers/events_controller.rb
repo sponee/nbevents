@@ -65,7 +65,7 @@ class EventsController < ApplicationController
         start_time: params["start_time"],
         end_time: params["end_time"]
       })
-    if @update["status_code"] == 200
+    if @update["status_code"] == 200 || @update["status_code"] == 201
       redirect_to user_nation_api_tokens_path(@user), notice: "Event successfully created!"
     else
       render :new
