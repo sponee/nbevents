@@ -6,7 +6,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  config.secret_key = '0fd0dc2e03c9b678158eb981705876fc75b4501caf752aaf1f6ce3e370ca48e46eba7b9ffdaacd3469bfb222547899b1660624792f3adde0f1aef5fdf1b6a2c5'
+  
+  config.secret_key = '03c31bd47c9fcca0b7b16b0c6e482615f97a6b1eb176cdb1e014ad9235fa43a96f3509c2844c140d330b42d953b13bbed3bbe281b85d4be3b5cf89f822d1df8c'
 
   config.omniauth :facebook, ENV["APP_ID"], ENV["APP_SECRET"]
 
